@@ -36,10 +36,10 @@ const options = {
 const fp = flatpickr(refs.input, options);
 
 const handleOnStartClick = () => {
-  timerId = setInterval(() => {
+  setInterval(() => {
     const currentDate = new Date();
     const ms = selectedDate.getTime() - currentDate.getTime();
-
+    if (ms<=0) {return}
     const timeLeft = convertMs(ms);
     refs.daysEl.textContent = addLeadingZero(timeLeft.days);
     refs.hoursEl.textContent = addLeadingZero(timeLeft.hours);
